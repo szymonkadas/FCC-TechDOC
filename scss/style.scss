@@ -1,0 +1,171 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@import "./variables";
+
+@function weight($weight-name){
+    @return map-get($font-weights, $weight-name);
+};
+// @function fsize($fname){
+//     @return map-get($font-sizes, $fname);
+// };
+@mixin mobile {
+    @media (max-width: 1000px){
+        @content
+    }
+};
+@mixin center { display: flex;
+justify-content: center;
+align-items: center;
+}
+.hover-class{
+    cursor: pointer;
+    transition: 0.3s;
+    // text-shadow: 1px 1px 3px $secondary-color;
+}
+.active{
+    color: $primary-color;
+}
+.active::before{
+    content: '';
+    display: inline;
+    background-color: $primary-color;
+}
+body{
+    text-rendering: optimizeSpeed;
+    margin: 0px;
+    display: grid;
+    grid-template-columns: 500px 1fr 0px; //26.04%
+    gap: 24px;
+    // color: $text-color;
+    @include mobile{
+        //Used for media queries B)
+    }
+    font-family: Exo, sans-serif;
+}
+#nav-bar{
+    overflow: hidden;
+    top: 0px;
+    position: sticky;
+    background-color: $code-color;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 72px 40px 80px 1fr;
+    row-gap: 24px;
+    padding: 0px 0px 0px 0px;
+    justify-content: center;
+    header{
+        @include desk-h4;
+        @include center;
+        color: $primary-color;
+        img{
+            height: 64px;
+        }
+    }
+    #nav-links{
+        @include desk-h5;
+        display: grid;
+        padding: 0px 16px 0px 0px;
+        grid-template-columns: 164px 154px 164px;
+        color: $tertiary-color;
+        .nav-link{
+            @include center;
+            gap: 8px;
+            img{
+                @include center;
+                height: 32px;
+            }
+            #nav-link-small-img{
+                height: 40px;
+            }
+            div{
+                display: flex;
+                flex-direction: row;
+                .active-mark{
+                    color: $primary-color;
+                }
+            }
+        }
+        .nav-link:hover{
+            color: $primary-color;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .nav-link::before{
+            content: '';
+            display: inline;
+            margin-right: -5px;
+            height: 32px;
+            width: 0px;
+            transition: 0.3s;
+        }
+        .nav-link:hover::before{
+            width: 4px;
+            background-color: $primary-color;
+        }
+        .active::before{
+            width: 4px;
+            height: 32px;
+            margin-right: -8px;
+        }
+    }
+    .path-container{
+        background-color: $secondary-color;
+        padding-left: 16px;
+        #path{
+            @include desk-h6;
+            color: $code-color;
+        }
+        input{
+            border-radius: 7px;
+            width: 404px;
+            height: 32px;
+            border-style: solid;
+            border-color: $tertiary-color;
+            border-width: 4px;
+            color: $tertiary-color;
+            position: relative;
+            padding: 0px 48px 0px 8px;
+            font-family: consolas, exo, sans-serif;
+            margin-left: -4px;
+        }
+        input:focus{
+            border-color: $primary-color;
+            border-width: 2px;
+            color: $primary-color;
+            margin-left: 0px;
+        }
+        img{
+            height: 32px;
+            position: relative;
+            top: -35px;
+            left: 420px;
+        }
+        input:focus ~ img{
+            top: -33px;
+        }
+    }
+    header:hover{
+        // font-size: fsize("header-active");
+        @extend .hover-class;
+
+    }
+    // .links-container{
+    //     display: flex;
+    //     flex-direction: column;
+    //     width: 100%;
+    //     .nav-link{
+    //     }
+    //     .nav-link:hover{
+    //         @extend .hover-class;
+    //     }
+    // }
+
+}
+#main-doc{
+    overflow: hidden;
+    margin-top: 16px;
+}
+#topic_2{
+    padding-top: 100px; //rozwiązanie z numpy docs na zasłanianie navbarem :/
+}

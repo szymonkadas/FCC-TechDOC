@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 576 512"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="house-chimney-user.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.1449053"
+     inkscape:cx="198.26967"
+     inkscape:cy="262.0304"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
+  <!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.-->
+  <path
+     d="m 494.45121,284.83585 0.64567,146.09582 c 0.0922,32.39474 -26.37924,58.67558 -59.03041,58.67558 H 140.54565 c -32.60506,0 -59.039589,-26.18958 -59.039589,-58.40183 V 284.83585 H 51.953977 c -16.629963,0 -29.561306,-12.86665 -29.561306,-29.29217 0,-8.21273 2.770739,-15.51297 9.232722,-21.90068 L 268.10661,29.707502 c 6.45645,-6.400478 13.83525,-7.314831 20.29166,-7.314831 6.45649,0 13.83527,1.828707 19.46159,6.400474 L 406.0901,114.28428 V 80.794495 c 0,-16.124379 13.18961,-29.200912 29.5152,-29.200912 h 29.51519 c 16.32558,0 29.51519,13.076533 29.51519,29.200912 V 191.21042 l 48.70008,42.43258 c 7.37878,6.38771 11.16043,13.68795 10.14582,21.90068 0,16.42552 -13.83525,29.29217 -29.51519,29.29217 z"
+     id="path2"
+     sodipodi:nodetypes="ccssscssccsccsssscccsc"
+     style="opacity:1;fill:#000000;fill-opacity:0;stroke:#022873;stroke-width:44.7853;stroke-dasharray:none;stroke-opacity:1" />
+  <path
+     d="m 287.51964,287.19461 c 34.59337,0 62.71886,-27.9954 62.71886,-62.42876 0,-34.43335 -28.12549,-62.42876 -62.71886,-62.42876 -34.59338,0 -62.71888,27.99541 -62.71888,62.42876 0,34.43336 28.1255,62.42876 62.71888,62.42876 z"
+     id="path346"
+     style="stroke-width:0.977709;stroke:#011140;stroke-opacity:1;fill:#022873;fill-opacity:1" />
+  <path
+     d="m 194.06161,410.13125 h 186.91603 c 8.56699,0 15.57634,-7.05925 15.57634,-15.68724 0,-43.33596 -34.85204,-78.43612 -77.88167,-78.43612 h -62.30536 c -43.02962,0 -77.88168,35.10016 -77.88168,78.43612 0,8.62799 7.00935,15.68724 15.57634,15.68724 z"
+     id="path392"
+     style="stroke-width:0.976986;fill:#022873;fill-opacity:1" />
+</svg>

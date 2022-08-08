@@ -1,0 +1,144 @@
+
+//dark theme
+
+//light-theme
+$primary-color: #14AFF7;
+$secondary-color: #011140;
+$tertiary-color: #022873;
+$error-color: #DF3232;
+$contrast-color: #03070A;
+$code-color: #F2F2F2;
+
+//font-colors
+$font100: #252829;
+$font80: #505253;
+$font60: #7c7e7e;
+$font40: #a7a9a9;
+$font20: #d3d4d4;
+$font10: #e9e9e9;
+
+//Headers on desktop 
+@mixin h-default{
+    font-weight: 700;
+    font-family: Exo, sans-serif;
+}
+@mixin desk-h1{
+    font-size: 101px;
+    line-height: 132px;
+    @include h-default()
+}
+@mixin desk-h2{
+    font-size: 75.5px;
+    line-height: 104px;
+    @include h-default()
+}
+@mixin desk-h3{
+    font-size: 57px;
+    line-height: 72px;
+    font-weight: 300;
+    font-family: Exo, sans-serif;
+}
+@mixin desk-h4{
+    font-size: 42px;
+    line-height: 56px;
+    @include h-default;
+}
+@mixin desk-h5{
+    font-size: 32px;
+    line-height: 40px;
+    @include h-default()
+}
+@mixin desk-h6{
+    font-size: 24px;
+    line-height: 32px;
+    @include h-default()
+}
+
+//standard fonts on desktop
+@mixin code-text{
+    font-size: 17px;
+    line-height: 24px;
+    font-family: Exo, sans-serif;
+}
+@mixin regular-text{
+    font-size: 18px;
+    line-height: 24px;
+    font-family: Exo, sans-serif;
+}
+@mixin smaller-text{
+    font-size: 16px;
+    line-height: 20px;
+    font-family: Exo, sans-serif;
+}
+
+//Headers on mobile
+
+@mixin mobile-h1{
+    font-size: 34.5px;
+    line-height: 40px;
+    @include h-default()
+}
+@mixin mobile-h2{
+    font-size: 31px;
+    line-height: 40px;
+    @include h-default()
+}
+@mixin mobile-h3{
+    font-size: 27px;
+    line-height: 32px;
+    font-weight: 300;
+    font-family: Exo, sans-serif;
+}
+@mixin mobile-h4{
+    font-size: 24px;
+    line-height: 32px;
+    @include h-default()
+}
+@mixin mobile-h5{
+    font-size: 21.5px;
+    line-height: 24px;
+    @include h-default()
+}
+@mixin mobile-h6{
+    font-size: 19px;
+    line-height: 24px;
+    @include h-default()
+}
+
+//mobile standard fonts
+
+@mixin mobile-code-text{
+    font-size: 15px;
+    line-height: 18px;
+    font-family: Exo, sans-serif;
+}
+@mixin mobile-regular-text{
+    font-size: 16px;
+    line-height: 20px;
+    font-family: Exo, sans-serif;
+}
+@mixin mobile-smaller-text{
+    font-size: 14px;
+    line-height: 16px;
+    font-family: Exo, sans-serif;
+}
+
+$font-weights: (
+    "thin": 100,
+    "extra-light": 200,
+    "light": 300,
+    "standard": 400,
+    "medium": 500,
+    "semi-bold": 600,
+    "bold":700,
+    "extra-bold": 800,
+    "thick": 900
+);
+
+$resolution: (
+    "mobile": 600px,
+    "tablet": 900px,
+    "computer": 1600px
+);
+
+$nav-border-width: 3px;
