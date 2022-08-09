@@ -18,18 +18,26 @@
 justify-content: center;
 align-items: center;
 }
+@mixin before-after{
+    content: '';
+    display: inline-block;
+    background-color: $primary-color;
+    transition: 0.3s;
+    width: 0px;
+    height: 0px;
+}
 .hover-class{
     cursor: pointer;
     transition: 0.3s;
     // text-shadow: 1px 1px 3px $secondary-color;
 }
 .active{
-    color: $primary-color;
+    color: $primary-color !important;
 }
 .active::before{
-    content: '';
-    display: inline;
-    background-color: $primary-color;
+    @include before-after;
+    width: 4px !important;
+    height: 100% !important;
 }
 body{
     text-rendering: optimizeSpeed;
@@ -50,7 +58,7 @@ body{
     background-color: $code-color;
     height: 100vh;
     display: grid;
-    grid-template-rows: 72px 40px 80px 1fr;
+    grid-template-rows: 72px 40px 88px 1fr;
     row-gap: 24px;
     padding: 0px 0px 0px 0px;
     justify-content: center;
@@ -61,6 +69,11 @@ body{
         img{
             height: 64px;
         }
+    }
+    .nav-link:hover{
+        color: $primary-color;
+        transition: 0.3s;
+        cursor: pointer;
     }
     #nav-links{
         @include desk-h5;
@@ -86,18 +99,10 @@ body{
                 }
             }
         }
-        .nav-link:hover{
-            color: $primary-color;
-            transition: 0.3s;
-            cursor: pointer;
-        }
         .nav-link::before{
-            content: '';
-            display: inline;
+            @include before-after;
             margin-right: -5px;
             height: 32px;
-            width: 0px;
-            transition: 0.3s;
         }
         .nav-link:hover::before{
             width: 4px;
@@ -112,9 +117,12 @@ body{
     .path-container{
         background-color: $secondary-color;
         padding-left: 16px;
+        padding-right: 16px;
         #path{
             @include desk-h6;
             color: $code-color;
+            position: relative;
+            top: 8px;
         }
         input{
             border-radius: 7px;
@@ -125,6 +133,7 @@ body{
             border-width: 4px;
             color: $tertiary-color;
             position: relative;
+            top: 8px;
             padding: 0px 48px 0px 8px;
             font-family: consolas, exo, sans-serif;
             margin-left: -4px;
@@ -138,29 +147,51 @@ body{
         img{
             height: 32px;
             position: relative;
-            top: -35px;
+            top: -28px;
             left: 420px;
         }
         input:focus ~ img{
-            top: -33px;
+            top: -26px;
         }
     }
-    header:hover{
-        // font-size: fsize("header-active");
-        @extend .hover-class;
-
+    .links-container{
+        display: grid;
+        grid-template-columns: 1fr 2fr 2fr;
+        column-gap: 12px;
+        padding: 0px 16px 0px 16px;
+        a{
+            text-decoration: none;
+            color: $tertiary-color;
+            display: flex;
+            align-items: center;
+        }
+        @mixin container{display: flex;
+            flex-direction: column;
+            @include desk-h6;
+            row-gap: 16px;}
+        .nav-link-container{
+            @include container;
+            .nav-link::before{@include before-after;
+            height: 100%;
+            position: relative;
+            left: -3px;}
+            .nav-link:hover::before{
+                width: 3px;
+            }
+            .nav-link{
+                height: auto;
+                -ms-word-break: break-all;
+                word-break: break-word;
+                -ms-hyphens: auto;
+                -moz-hyphens: auto;
+                -webkit-hyphens: auto;
+                hyphens: auto;
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+            }
+        }
+        
     }
-    // .links-container{
-    //     display: flex;
-    //     flex-direction: column;
-    //     width: 100%;
-    //     .nav-link{
-    //     }
-    //     .nav-link:hover{
-    //         @extend .hover-class;
-    //     }
-    // }
-
 }
 #main-doc{
     overflow: hidden;

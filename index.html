@@ -23,25 +23,22 @@
         </div>
         <div class="path-container">
             <span id="path">JS / Topic 1 / Explanation</span>
-            <div><input placeholder="search"></input><img src="./icons/search.svg"></div>
+            <input type="text" placeholder="search" name="search" id="searchbar"></input><img src="./icons/search.svg">
         </div>
         <div class="links-container"> <!--- Contains documentation navigation-->
-            <div id="directories"> <!--- Tu można zasadzić onclicka by potem na podstawie directory zmieniał topics, to samo z articlesami po zmianie topic-->
-                <a href=#topic_1 class="nav-link">JS</a>
+            <div id="directories" class="nav-link-container"> <!--- Tu można zasadzić onclicka by potem na podstawie directory zmieniał topics, to samo z articlesami po zmianie topic-->
+                <a href=#other_site class="nav-link active">JS</a> 
+                <a href=#other_site class="nav-link">HTML</a> <!-- There would be a link to other subpage-->
+                <a href=#other_site class="nav-link">SCSS</a>
             </div>
-            <div id="topics">
-                <a href=#topic_1 class="nav-link">Topic 1</a>
+            <div id="topics" class="nav-link-container">
+                <a href=#topic_1 class="nav-link">Topic 1 (Introduction)</a>
                 <a href=#topic_2 class="nav-link">Topic 2</a>
                 <a href=#topic_3 class="nav-link">Topic 3</a>
                 <a href=#topic_4 class="nav-link">Topic 4</a>
                 <a href=#topic_5 class="nav-link">Topic 5</a>
             </div>
-            <div id="article-features">
-                <a href=#topic_1 class="nav-link">Topic 1</a>
-                <a href=#topic_2 class="nav-link">Topic 2</a>
-                <a href=#topic_3 class="nav-link">Topic 3</a>
-                <a href=#topic_4 class="nav-link">Topic 4</a>
-                <a href=#topic_5 class="nav-link">Topic 5</a>
+            <div id="article-features" class="nav-link-container">
             </div> 
         </div>
     </nav>
@@ -50,11 +47,12 @@
     <main id="main-doc">
         <section class="main-section" id="topic_1">
             <header>Topic 1</header>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem et quibusdam illum tenetur delectus incidunt perferendis odio praesentium, vel harum cupiditate minus inventore quae possimus.</p>
-            <code>
+            <p id="topic_1_explanation" class="Explanation">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem et quibusdam illum tenetur delectus incidunt perferendis odio praesentium, vel harum cupiditate minus inventore quae possimus.</p>
+            <code id="topic_1_example" class="Example">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, laborum!
             </code>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis atque aliquid molestias non. Facere, veniam autem? Commodi eligendi quo dolores accusamus unde, quia laudantium debitis eos, aut eius iste quis. Pariatur qui perferendis repudiandae cumque quod odio, nemo eligendi, odit provident vel blanditiis maxime reiciendis eum doloremque? Dicta, magni placeat?</p>
+            <p id="topic_1_compatibility" class="Compatibility">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis atque aliquid molestias non. Facere, veniam autem? Commodi eligendi quo dolores accusamus unde, quia laudantium debitis eos, aut eius iste quis. Pariatur qui perferendis repudiandae cumque quod odio, nemo eligendi, odit provident vel blanditiis maxime reiciendis eum doloremque? Dicta, magni placeat?</p>
+            <a href="https://docs.docker.com/" id="topic_1_see_also" class="See also">Docker Documentation</a>
         </section>
         <section class="main-section" id="topic_2">
             <header>Topic 2</header>
@@ -109,5 +107,6 @@
         </section>
     </main>
 
-
+    <script src="js.js">
+    </script>
 </body>
