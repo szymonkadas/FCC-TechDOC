@@ -7,7 +7,8 @@ $secondary-color: #011140;
 $tertiary-color: #022873;
 $error-color: #DF3232;
 $contrast-color: #03070A;
-$code-color: #F2F2F2;
+$code-color: #E8E8E8;
+$white-color: #F4F4F4;
 
 //font-colors
 $font100: #252829;
@@ -58,7 +59,7 @@ $font10: #e9e9e9;
 @mixin code-text{
     font-size: 17px;
     line-height: 24px;
-    font-family: Exo, sans-serif;
+    font-family: consolas, Exo, sans-serif;
 }
 @mixin regular-text{
     font-size: 18px;
@@ -110,7 +111,7 @@ $font10: #e9e9e9;
 @mixin mobile-code-text{
     font-size: 15px;
     line-height: 18px;
-    font-family: Exo, sans-serif;
+    font-family: consolas, Exo, sans-serif;
 }
 @mixin mobile-regular-text{
     font-size: 16px;

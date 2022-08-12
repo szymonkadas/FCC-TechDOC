@@ -22,14 +22,18 @@
             <a class="nav-link"><img src="./icons/address-book.svg">Contact</a>
         </div>
         <div class="path-container">
-            <span id="path">JS / Topic 1 / Explanation</span>
-            <input type="text" placeholder="search" name="search" id="searchbar"></input><img src="./icons/search.svg">
+            <span id="path">JS</span>
+            <input type="text" placeholder="search" name="search" id="searchbar" autocomplete="off"></input>
+            <!-- <img src="./icons/search.svg"> -->
+            <div id="search-img" onclick="focus_search()"></div>
+            <div id="searched">
+            </div>
         </div>
         <div class="links-container"> <!--- Contains documentation navigation-->
             <div id="directories" class="nav-link-container"> <!--- Tu można zasadzić onclicka by potem na podstawie directory zmieniał topics, to samo z articlesami po zmianie topic-->
                 <a href=#other_site class="nav-link active">JS</a> 
-                <a href=#other_site class="nav-link">HTML</a> <!-- There would be a link to other subpage-->
-                <a href=#other_site class="nav-link">SCSS</a>
+                <a href=#other_site class="nav-link" onclick="alert('redirection to other subpage')">HTML</a> <!-- There would be a link to other subpage-->
+                <a href=#other_site class="nav-link" onclick="alert('redirection to other subpage')">SCSS</a>
             </div>
             <div id="topics" class="nav-link-container">
                 <a href=#topic_1 class="nav-link">Topic 1 (Introduction)</a>
@@ -47,60 +51,319 @@
     <main id="main-doc">
         <section class="main-section" id="topic_1">
             <header>Topic 1</header>
-            <p id="topic_1_explanation" class="Explanation">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem et quibusdam illum tenetur delectus incidunt perferendis odio praesentium, vel harum cupiditate minus inventore quae possimus.</p>
-            <code id="topic_1_example" class="Example">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, laborum!
+            <p id="topic_1_explanation" title="Explanation">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam dolor reiciendis iusto similique, sequi enim debitis magnam voluptates sunt dignissimos saepe quae rem. Quae totam iste est vel. Cumque molestiae voluptatem, aliquam aperiam nisi ipsam magni quisquam tempore dicta! , vel harum cupiditate minus inventore quae possimus. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore, alias? Ex fugiat perspiciatis at earum minus eveniet asperiores dolor repudiandae, quisquam sit unde, voluptas distinctio corrupti! Eum neque, quam quas rem est nesciunt in similique, iure fugit illum ducimus veniam necessitatibus dolor molestias ut nulla inventore facilis exercitationem sapiente natus.</p>
+            <code id="topic_1_example" title="Example">
+                <span class="var-dec">#main-doc</span>{<br>
+                    <span class="tag"><span class="var">overflow</span>: hidden;<br>
+                    <span class="var">margin-top</span>: 16px;<br>
+                    <span class="forif">@include</span><span class="var"> regular-text</span>;<br>
+                    <span class="var-dec">header</span>{<br>
+                        <span class="tag"><span class="forif">@include</span> <span class="var">desk-h3</span>;</span><br>
+                    }<br>
+                    <span class="var-dec">code</span>{<br>
+                        <span class="tag">
+                        <span class="forif">@include</span> <span class="var">code-text</span>;<br>
+                        <span class="var">display</span>: inline-block;<br>
+                        <span class="var">background-color</span>: $code-color;<br>
+                        <span class="var">width</span> 80%;<br>
+                        </span>
+                    }<br>
+                }</span>
             </code>
-            <p id="topic_1_compatibility" class="Compatibility">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis atque aliquid molestias non. Facere, veniam autem? Commodi eligendi quo dolores accusamus unde, quia laudantium debitis eos, aut eius iste quis. Pariatur qui perferendis repudiandae cumque quod odio, nemo eligendi, odit provident vel blanditiis maxime reiciendis eum doloremque? Dicta, magni placeat?</p>
-            <a href="https://docs.docker.com/" id="topic_1_see_also" class="See also">Docker Documentation</a>
+            <p id="topic_1_compatibility" title="Compatibility">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis atque aliquid molestias non. Facere, veniam autem? Commodi eligendi quo dolores accusamus unde, quia laudantium debitis eos, aut eius iste quis. Pariatur qui perferendis repudiandae cumque quod odio, nemo eligendi, odit provident vel blanditiis maxime reiciendis eum doloremque? Dicta, magni placeat?</p>
+            <a href="https://docs.docker.com/" id="topic_1_see_also" title="See also">Docker Documentation</a>
         </section>
         <section class="main-section" id="topic_2">
             <header>Topic 2</header>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem et quibusdam illum tenetur delectus incidunt perferendis odio praesentium, vel harum cupiditate minus inventore quae possimus.</p>
-            <code>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio, quis!
+            <p id="topic_2_explanation" title = "Explanation">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem et quibusdam illum tenetur delectus incidunt perferendis odio praesentium, vel harum cupiditate minus inventore quae possimus.</p>
+            <code id="topic_2_example" title="Example">
+                <span>
+                    <span class="var-dec">const</span> 
+                    <span class="var">fill_search</span> = 
+                    <span class="var">(target) =></span>{<br>
+                    <span class="tag comment">//target is meant to be filled IN to_be_filled</span> <br>
+                    <span class="tag">
+                        <span class="var-dec">let</span> 
+                        <span class="var">to_be_filled</span> = 
+                        <span class="var">document</span>.<span class="method">getElementById</span>(<span class="string">"searched"</span>);
+                    </span> <br>
+                    <span class="tag">
+                        <span class="var-dec">let</span> 
+                        <span class="var">node</span> = 
+                        <span class="var">target.parentNode.id</span>;
+                    </span> <br>
+                    <span class="tag">
+                        <span class="var-dec">let</span>
+                        <span class="var">searched</span> = 
+                        <span class="method">create_an_element</span>
+                        (<span class="string">"a"</span>,<span class="var"> false, false, target.innerText,<span class="var-dec">`#${node}`</span></span>)
+                    </span> <br>
+                    <span class="tag comment">//similiar code to fill_implementation</span> <br>
+                    <span class="tag">
+                        <span class="var">searched</span>.<span class="method">addEventListener</span>(<span class="string">"click"</span>,<span class="var">(event)=></span>
+                        <span class="method">{</span>
+                    <br>
+                        <span class="tag">
+                            <span class="var">const</span> 
+                            <span class="var">topics</span> = 
+                            <span class="var">document.</span><span class="method">querySelector</span>(<span class="string">`#topics`</span>);
+                        </span><br>
+                        <span class="tag">
+                            <span class="forif">for</span> 
+                            <span class="var">(i=0; i&lt;topics.children.length;i++)</span>
+                            <span class="string">{</span>
+                        <br>
+                                <span class="tag">
+                                    <span class="var-dec">let</span> 
+                                    <span class="var">node</span> = 
+                                    <span class="var">topics.children[i].attributes</span>
+                                </span> <br>
+                                <span class="tag">
+                                    <span class="forif">for</span><span class="var">(j=0; j&lt;node.length;j++)</span>
+                                    <span class="forif">{
+                                </span> <br>
+                                    <span class="tag">
+                                        <span class="forif">if</span>
+                                        <span class="var">(node[j].nodeName==<span class="string">"href"</span> && node[j].value == event.target.attributes[0].value)
+                                        <span>{</span> 
+                                    <br>
+                                        <span class="tag"><span class="var">topics.children[i].</span><span class="method">click()</span>; 
+                                        <span class="comment">//Simulating click to apply effects with ease.</span>
+                                    </span> <br>
+                                        <span class="tag">
+                                            <span class="var">i</span> = 
+                                            <span class="var">topics.children.length</span>; 
+                                            <span class="comment">//to break loops</span>;
+                                        </span> <br>
+                                    <span class="tag">}<span class="forif">}</span><span class="string">}</span><span class="method">}</span>);</span></span></span></span></span> <br>
+                    <span class="tag">
+                        <span class="var">to_be_filled</span>.<span class="method">appendChild(searched)</span>;</span> <br>
+                }</span>
             </code>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis atque aliquid molestias non. Facere, veniam autem? Commodi eligendi quo dolores accusamus unde, quia laudantium debitis eos, aut eius iste quis. Pariatur qui perferendis repudiandae cumque quod odio, nemo eligendi, odit provident vel blanditiis maxime reiciendis eum doloremque? Dicta, magni placeat?</p>
+            <p id="topic_2_compatibility" title="Compatibility">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis atque aliquid molestias non. Facere, veniam autem? Commodi eligendi quo dolores accusamus unde, quia laudantium debitis eos, aut eius iste quis. Pariatur qui perferendis repudiandae cumque quod odio, nemo eligendi, odit provident vel blanditiis maxime reiciendis eum doloremque? Dicta, magni placeat?</p>
         </section>
         <section class="main-section" id="topic_3">
             <header>Topic 3</header>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem et quibusdam illum tenetur delectus incidunt perferendis odio praesentium, vel harum cupiditate minus inventore quae possimus.</p>
-            <code>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, consectetur.
+            <p id="topic_3_explanation" title="Explanation">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem et quibusdam illum tenetur delectus incidunt perferendis odio praesentium, vel harum cupiditate minus inventore quae possimus.</p>
+            <code id="topic_3_example" title="Example">
+                <span>
+                    <span class="var-dec">const</span> 
+                    <span class="var">fill_search</span> = 
+                    <span class="var">(target) =></span>{<br>
+                    <span class="tag comment">//target is meant to be filled IN to_be_filled</span> <br>
+                    <span class="tag">
+                        <span class="var-dec">let</span> 
+                        <span class="var">to_be_filled</span> = 
+                        <span class="var">document</span>.<span class="method">getElementById</span>(<span class="string">"searched"</span>);
+                    </span> <br>
+                    <span class="tag">
+                        <span class="var-dec">let</span> 
+                        <span class="var">node</span> = 
+                        <span class="var">target.parentNode.id</span>;
+                    </span> <br>
+                    <span class="tag">
+                        <span class="var-dec">let</span>
+                        <span class="var">searched</span> = 
+                        <span class="method">create_an_element</span>
+                        (<span class="string">"a"</span>,<span class="var"> false, false, target.innerText,<span class="var-dec">`#${node}`</span></span>)
+                    </span> <br>
+                    <span class="tag comment">//similiar code to fill_implementation</span> <br>
+                    <span class="tag">
+                        <span class="var">searched</span>.<span class="method">addEventListener</span>(<span class="string">"click"</span>,<span class="var">(event)=></span>
+                        <span class="method">{</span>
+                    <br>
+                        <span class="tag">
+                            <span class="var">const</span> 
+                            <span class="var">topics</span> = 
+                            <span class="var">document.</span><span class="method">querySelector</span>(<span class="string">`#topics`</span>);
+                        </span><br>
+                        <span class="tag">
+                            <span class="forif">for</span> 
+                            <span class="var">(i=0; i&lt;topics.children.length;i++)</span>
+                            <span class="string">{</span>
+                        <br>
+                                <span class="tag">
+                                    <span class="var-dec">let</span> 
+                                    <span class="var">node</span> = 
+                                    <span class="var">topics.children[i].attributes</span>
+                                </span> <br>
+                                <span class="tag">
+                                    <span class="forif">for</span><span class="var">(j=0; j&lt;node.length;j++)</span>
+                                    <span class="forif">{
+                                </span> <br>
+                                    <span class="tag">
+                                        <span class="forif">if</span>
+                                        <span class="var">(node[j].nodeName==<span class="string">"href"</span> && node[j].value == event.target.attributes[0].value)
+                                        <span>{</span> 
+                                    <br>
+                                        <span class="tag"><span class="var">topics.children[i].</span><span class="method">click()</span>; 
+                                        <span class="comment">//Simulating click to apply effects with ease.</span>
+                                    </span> <br>
+                                        <span class="tag">
+                                            <span class="var">i</span> = 
+                                            <span class="var">topics.children.length</span>; 
+                                            <span class="comment">//to break loops</span>;
+                                        </span> <br>
+                                    <span class="tag">}<span class="forif">}</span><span class="string">}</span><span class="method">}</span>);</span></span></span></span></span> <br>
+                    <span class="tag">
+                        <span class="var">to_be_filled</span>.<span class="method">appendChild(searched)</span>;</span> <br>
+                }</span>
             </code>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis atque aliquid molestias non. Facere, veniam autem? Commodi eligendi quo dolores accusamus unde, quia laudantium debitis eos, aut eius iste quis. Pariatur qui perferendis repudiandae cumque quod odio, nemo eligendi, odit provident vel blanditiis maxime reiciendis eum doloremque? Dicta, magni placeat?</p>
+            <p id="topic_3_compatibility" title="Compatibility">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis atque aliquid molestias non. Facere, veniam autem? Commodi eligendi quo dolores accusamus unde, quia laudantium debitis eos, aut eius iste quis. Pariatur qui perferendis repudiandae cumque quod odio, nemo eligendi, odit provident vel blanditiis maxime reiciendis eum doloremque? Dicta, magni placeat?</p>
         </section>
         <section class="main-section" id="topic_4">
             <header>Topic 4</header>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem et quibusdam illum tenetur delectus incidunt perferendis odio praesentium, vel harum cupiditate minus inventore quae possimus.</p>
-            <code>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, consectetur.
+            <p id="topic_4_explanation" title="Explanation">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem et quibusdam illum tenetur delectus incidunt perferendis odio praesentium, vel harum cupiditate minus inventore quae possimus.</p>
+            <code id="topic_4_example" title="Example">
+                <span>
+                    <span class="var-dec">const</span> 
+                    <span class="var">fill_search</span> = 
+                    <span class="var">(target) =></span>{<br>
+                    <span class="tag comment">//target is meant to be filled IN to_be_filled</span> <br>
+                    <span class="tag">
+                        <span class="var-dec">let</span> 
+                        <span class="var">to_be_filled</span> = 
+                        <span class="var">document</span>.<span class="method">getElementById</span>(<span class="string">"searched"</span>);
+                    </span> <br>
+                    <span class="tag">
+                        <span class="var-dec">let</span> 
+                        <span class="var">node</span> = 
+                        <span class="var">target.parentNode.id</span>;
+                    </span> <br>
+                    <span class="tag">
+                        <span class="var-dec">let</span>
+                        <span class="var">searched</span> = 
+                        <span class="method">create_an_element</span>
+                        (<span class="string">"a"</span>,<span class="var"> false, false, target.innerText,<span class="var-dec">`#${node}`</span></span>)
+                    </span> <br>
+                    <span class="tag comment">//similiar code to fill_implementation</span> <br>
+                    <span class="tag">
+                        <span class="var">searched</span>.<span class="method">addEventListener</span>(<span class="string">"click"</span>,<span class="var">(event)=></span>
+                        <span class="method">{</span>
+                    <br>
+                        <span class="tag">
+                            <span class="var">const</span> 
+                            <span class="var">topics</span> = 
+                            <span class="var">document.</span><span class="method">querySelector</span>(<span class="string">`#topics`</span>);
+                        </span><br>
+                        <span class="tag">
+                            <span class="forif">for</span> 
+                            <span class="var">(i=0; i&lt;topics.children.length;i++)</span>
+                            <span class="string">{</span>
+                        <br>
+                                <span class="tag">
+                                    <span class="var-dec">let</span> 
+                                    <span class="var">node</span> = 
+                                    <span class="var">topics.children[i].attributes</span>
+                                </span> <br>
+                                <span class="tag">
+                                    <span class="forif">for</span><span class="var">(j=0; j&lt;node.length;j++)</span>
+                                    <span class="forif">{
+                                </span> <br>
+                                    <span class="tag">
+                                        <span class="forif">if</span>
+                                        <span class="var">(node[j].nodeName==<span class="string">"href"</span> && node[j].value == event.target.attributes[0].value)
+                                        <span>{</span> 
+                                    <br>
+                                        <span class="tag"><span class="var">topics.children[i].</span><span class="method">click()</span>; 
+                                        <span class="comment">//Simulating click to apply effects with ease.</span>
+                                    </span> <br>
+                                        <span class="tag">
+                                            <span class="var">i</span> = 
+                                            <span class="var">topics.children.length</span>; 
+                                            <span class="comment">//to break loops</span>;
+                                        </span> <br>
+                                    <span class="tag">}<span class="forif">}</span><span class="string">}</span><span class="method">}</span>);</span></span></span></span></span> <br>
+                    <span class="tag">
+                        <span class="var">to_be_filled</span>.<span class="method">appendChild(searched)</span>;</span> <br>
+                }</span>
             </code>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis atque aliquid molestias non. Facere, veniam autem? Commodi eligendi quo dolores accusamus unde, quia laudantium debitis eos, aut eius iste quis. Pariatur qui perferendis repudiandae cumque quod odio, nemo eligendi, odit provident vel blanditiis maxime reiciendis eum doloremque? Dicta, magni placeat?</p>
+            <p id="topic_4_compatibility" title="Compatibility">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis atque aliquid molestias non. Facere, veniam autem? Commodi eligendi quo dolores accusamus unde, quia laudantium debitis eos, aut eius iste quis. Pariatur qui perferendis repudiandae cumque quod odio, nemo eligendi, odit provident vel blanditiis maxime reiciendis eum doloremque? Dicta, magni placeat?</p>
         </section>
         <section class="main-section" id="topic_5">
             <header>Topic 5</header>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem et quibusdam illum tenetur delectus incidunt perferendis odio praesentium, vel harum cupiditate minus inventore quae possimus.</p>
-            <code>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, consectetur.
+            <p id="topic_5_explanation" title="Explanation">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem et quibusdam illum tenetur delectus incidunt perferendis odio praesentium, vel harum cupiditate minus inventore quae possimus.</p>
+            <code id="topic_5_example" title="Example">
+                <span>
+                    <span class="var-dec">const</span> 
+                    <span class="var">fill_search</span> = 
+                    <span class="var">(target) =></span>{<br>
+                    <span class="tag comment">//target is meant to be filled IN to_be_filled</span> <br>
+                    <span class="tag">
+                        <span class="var-dec">let</span> 
+                        <span class="var">to_be_filled</span> = 
+                        <span class="var">document</span>.<span class="method">getElementById</span>(<span class="string">"searched"</span>);
+                    </span> <br>
+                    <span class="tag">
+                        <span class="var-dec">let</span> 
+                        <span class="var">node</span> = 
+                        <span class="var">target.parentNode.id</span>;
+                    </span> <br>
+                    <span class="tag">
+                        <span class="var-dec">let</span>
+                        <span class="var">searched</span> = 
+                        <span class="method">create_an_element</span>
+                        (<span class="string">"a"</span>,<span class="var"> false, false, target.innerText,<span class="var-dec">`#${node}`</span></span>)
+                    </span> <br>
+                    <span class="tag comment">//similiar code to fill_implementation</span> <br>
+                    <span class="tag">
+                        <span class="var">searched</span>.<span class="method">addEventListener</span>(<span class="string">"click"</span>,<span class="var">(event)=></span>
+                        <span class="method">{</span>
+                    <br>
+                        <span class="tag">
+                            <span class="var">const</span> 
+                            <span class="var">topics</span> = 
+                            <span class="var">document.</span><span class="method">querySelector</span>(<span class="string">`#topics`</span>);
+                        </span><br>
+                        <span class="tag">
+                            <span class="forif">for</span> 
+                            <span class="var">(i=0; i&lt;topics.children.length;i++)</span>
+                            <span class="string">{</span>
+                        <br>
+                                <span class="tag">
+                                    <span class="var-dec">let</span> 
+                                    <span class="var">node</span> = 
+                                    <span class="var">topics.children[i].attributes</span>
+                                </span> <br>
+                                <span class="tag">
+                                    <span class="forif">for</span><span class="var">(j=0; j&lt;node.length;j++)</span>
+                                    <span class="forif">{
+                                </span> <br>
+                                    <span class="tag">
+                                        <span class="forif">if</span>
+                                        <span class="var">(node[j].nodeName==<span class="string">"href"</span> && node[j].value == event.target.attributes[0].value)
+                                        <span>{</span> 
+                                    <br>
+                                        <span class="tag"><span class="var">topics.children[i].</span><span class="method">click()</span>; 
+                                        <span class="comment">//Simulating click to apply effects with ease.</span>
+                                    </span> <br>
+                                        <span class="tag">
+                                            <span class="var">i</span> = 
+                                            <span class="var">topics.children.length</span>; 
+                                            <span class="comment">//to break loops</span>;
+                                        </span> <br>
+                                    <span class="tag">}<span class="forif">}</span><span class="string">}</span><span class="method">}</span>);</span></span></span></span></span> <br>
+                    <span class="tag">
+                        <span class="var">to_be_filled</span>.<span class="method">appendChild(searched)</span>;</span> <br>
+                }</span>
             </code>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis atque aliquid molestias non. Facere, veniam autem? Commodi eligendi quo dolores accusamus unde, quia laudantium debitis eos, aut eius iste quis. Pariatur qui perferendis repudiandae cumque quod odio, nemo eligendi, odit provident vel blanditiis maxime reiciendis eum doloremque? Dicta, magni placeat?</p>
-            <ul class="main-section-ul">
+            <p id="topic_5_compatibility" title="Compatibility">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis atque aliquid molestias non. Facere, veniam autem? Commodi eligendi quo dolores accusamus unde, quia laudantium debitis eos, aut eius iste quis. Pariatur qui perferendis repudiandae cumque quod odio, nemo eligendi, odit provident vel blanditiis maxime reiciendis eum doloremque? Dicta, magni placeat?</p>
+            <ul class="main-section-ul" title="Pros & Cons" id="topic_5_pros_cons">
                 <p>Pros of this approach:</p>
-                <li>
+                <li class="pros">
                     Lorem ipsum dolor sit amet.
                 </li>
-                <li>
+                <li class="pros">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </li>
-                <li>
+                <li class="pros">
                     Lorem ipsum dolor sit amet.
                 </li>
-                <p>Cons of this approach:</p>
-                <li>
+                <p class=>Cons of this approach:</p>
+                <li class="cons">
                     Lorem ipsum dolor sit amet.
                 </li>
-                <li>
+                <li class="cons">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, corporis.
                 </li>
             </ul>

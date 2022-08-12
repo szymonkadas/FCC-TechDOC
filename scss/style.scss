@@ -50,6 +50,7 @@ body{
         //Used for media queries B)
     }
     font-family: Exo, sans-serif;
+    background-color: $white-color;
 }
 #nav-bar{
     overflow: hidden;
@@ -58,7 +59,7 @@ body{
     background-color: $code-color;
     height: 100vh;
     display: grid;
-    grid-template-rows: 72px 40px 88px 1fr;
+    grid-template-rows: 72px 40px minmax(96px, auto) 1fr;
     row-gap: 24px;
     padding: 0px 0px 0px 0px;
     justify-content: center;
@@ -118,40 +119,67 @@ body{
         background-color: $secondary-color;
         padding-left: 16px;
         padding-right: 16px;
+        position: relative;
         #path{
             @include desk-h6;
             color: $code-color;
             position: relative;
             top: 8px;
         }
-        input{
-            border-radius: 7px;
+        @mixin search-bar{
             width: 404px;
-            height: 32px;
             border-style: solid;
             border-color: $tertiary-color;
             border-width: 4px;
-            color: $tertiary-color;
-            position: relative;
-            top: 8px;
             padding: 0px 48px 0px 8px;
-            font-family: consolas, exo, sans-serif;
+            @include code-text;
             margin-left: -4px;
+            font-size: 15px;
         }
-        input:focus{
-            border-color: $primary-color;
-            border-width: 2px;
-            color: $primary-color;
-            margin-left: 0px;
-        }
-        img{
+        #searchbar{
+            border-radius: 7px 7px 0px 0px;
             height: 32px;
+            color: $tertiary-color;
+            background-color: $code-color;
             position: relative;
-            top: -28px;
-            left: 420px;
+            top: 16px;
+            @include search-bar;
         }
-        input:focus ~ img{
-            top: -26px;
+        #searchbar:focus{
+            outline: none;
+            box-shadow: -2px -2px 0px $primary-color, 2px -2px 0px $primary-color, 2px 2px 0px $primary-color, -2px 2px 0px $primary-color;
+            font-size: 16px;
+        }
+        #search-img{
+            display: inline-block;
+            height: 32px;
+            width: 32px;
+            position: absolute;
+            top: 52px;
+            left: 436px;
+            background-image: url("../../icons/search.svg");
+            cursor: pointer;
+        }
+        input:focus ~ #search-img{
+            opacity: 0.4;
+        }
+        #searched{
+            display: none;
+            flex-direction: column;
+            color: $primary-color;
+            margin-top: 16px;
+            margin-bottom: 16px;
+            @include search-bar;
+            border-top: 0px;
+            border-style: solid;
+            background-color: $code-color;
+            border-top-color: $tertiary-color;
+            box-shadow: -2px -2px 0px $primary-color, 2px -2px 0px $primary-color, -2px 2px 0px $primary-color, 2px 2px 0px $primary-color;
+            a{
+                text-decoration: none;
+                @include code-text;
+                color: $font80;
+            }
         }
     }
     .links-container{
@@ -196,7 +224,53 @@ body{
 #main-doc{
     overflow: hidden;
     margin-top: 16px;
-}
-#topic_2{
-    padding-top: 100px; //rozwiązanie z numpy docs na zasłanianie navbarem :/
+    display: grid;
+    grid-template-rows: auto;
+    gap: 24px;
+    .main-section{
+        color: $font100;
+        letter-spacing: 1px;
+        margin-right: 64px;
+        @include regular-text;
+        header{
+            @include desk-h3; 
+            color: $tertiary-color;
+        }
+        code{
+            @include code-text;
+            display: inline-block;
+            background-color: $code-color;
+            padding:16px 24px 16px 24px;
+            overflow: scroll;
+            .tag{
+                position: relative;
+                left: 24px;
+                word-wrap:normal;
+                padding-right: 24px;
+            }
+            .var{color: $tertiary-color}
+            .var-dec{color: $primary-color;
+            font-weight: 600;}
+            .method{color:deeppink}
+            .string{color: rgb(207, 127, 22);}
+            .comment{color: green}
+            .forif{color:darkmagenta;
+            font-weight: 600}
+        }
+        .main-section-ul{
+            padding-left: 24px;
+            p{
+                @include desk-h5;
+                color: $tertiary-color;
+                margin: 16px 0px 16px -16px;
+            }
+            .pros{
+                color: $primary-color;
+            }
+            .cons{
+                color: $secondary-color;
+                list-style-type: square;
+            }
+        }
+    }
 }

@@ -26,15 +26,16 @@ body {
   grid-template-columns: 500px 1fr 0px;
   gap: 24px;
   font-family: Exo, sans-serif;
+  background-color: #F4F4F4;
 }
 #nav-bar {
   overflow: hidden;
   top: 0px;
   position: sticky;
-  background-color: #F2F2F2;
+  background-color: #E8E8E8;
   height: 100vh;
   display: grid;
-  grid-template-rows: 72px 40px 88px 1fr;
+  grid-template-rows: 72px 40px minmax(96px, auto) 1fr;
   row-gap: 24px;
   padding: 0px 0px 0px 0px;
   justify-content: center;
@@ -112,44 +113,81 @@ body {
   background-color: #011140;
   padding-left: 16px;
   padding-right: 16px;
+  position: relative;
 }
 #nav-bar .path-container #path {
   font-size: 24px;
   line-height: 32px;
   font-weight: 700;
   font-family: Exo, sans-serif;
-  color: #F2F2F2;
+  color: #E8E8E8;
   position: relative;
   top: 8px;
 }
-#nav-bar .path-container input {
-  border-radius: 7px;
-  width: 404px;
+#nav-bar .path-container #searchbar {
+  border-radius: 7px 7px 0px 0px;
   height: 32px;
+  color: #022873;
+  background-color: #E8E8E8;
+  position: relative;
+  top: 16px;
+  width: 404px;
   border-style: solid;
   border-color: #022873;
   border-width: 4px;
-  color: #022873;
-  position: relative;
-  top: 8px;
   padding: 0px 48px 0px 8px;
-  font-family: consolas, exo, sans-serif;
+  font-size: 17px;
+  line-height: 24px;
+  font-family: consolas, Exo, sans-serif;
   margin-left: -4px;
+  font-size: 15px;
 }
-#nav-bar .path-container input:focus {
-  border-color: #14AFF7;
-  border-width: 2px;
-  color: #14AFF7;
-  margin-left: 0px;
+#nav-bar .path-container #searchbar:focus {
+  outline: none;
+  box-shadow: -2px -2px 0px #14AFF7, 2px -2px 0px #14AFF7, 2px 2px 0px #14AFF7, -2px 2px 0px #14AFF7;
+  font-size: 16px;
 }
-#nav-bar .path-container img {
+#nav-bar .path-container #search-img {
+  display: inline-block;
   height: 32px;
-  position: relative;
-  top: -28px;
-  left: 420px;
+  width: 32px;
+  position: absolute;
+  top: 52px;
+  left: 436px;
+  background-image: url("../../icons/search.svg");
+  cursor: pointer;
 }
-#nav-bar .path-container input:focus ~ img {
-  top: -26px;
+#nav-bar .path-container input:focus ~ #search-img {
+  opacity: 0.4;
+}
+#nav-bar .path-container #searched {
+  display: none;
+  flex-direction: column;
+  color: #14AFF7;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  width: 404px;
+  border-style: solid;
+  border-color: #022873;
+  border-width: 4px;
+  padding: 0px 48px 0px 8px;
+  font-size: 17px;
+  line-height: 24px;
+  font-family: consolas, Exo, sans-serif;
+  margin-left: -4px;
+  font-size: 15px;
+  border-top: 0px;
+  border-style: solid;
+  background-color: #E8E8E8;
+  border-top-color: #022873;
+  box-shadow: -2px -2px 0px #14AFF7, 2px -2px 0px #14AFF7, -2px 2px 0px #14AFF7, 2px 2px 0px #14AFF7;
+}
+#nav-bar .path-container #searched a {
+  text-decoration: none;
+  font-size: 17px;
+  line-height: 24px;
+  font-family: consolas, Exo, sans-serif;
+  color: #505253;
 }
 #nav-bar .links-container {
   display: grid;
@@ -201,8 +239,75 @@ body {
 #main-doc {
   overflow: hidden;
   margin-top: 16px;
+  display: grid;
+  grid-template-rows: auto;
+  gap: 24px;
 }
-
-#topic_2 {
-  padding-top: 100px;
+#main-doc .main-section {
+  color: #252829;
+  letter-spacing: 1px;
+  margin-right: 64px;
+  font-size: 18px;
+  line-height: 24px;
+  font-family: Exo, sans-serif;
+}
+#main-doc .main-section header {
+  font-size: 57px;
+  line-height: 72px;
+  font-weight: 300;
+  font-family: Exo, sans-serif;
+  color: #022873;
+}
+#main-doc .main-section code {
+  font-size: 17px;
+  line-height: 24px;
+  font-family: consolas, Exo, sans-serif;
+  display: inline-block;
+  background-color: #E8E8E8;
+  padding: 16px 24px 16px 24px;
+  overflow: scroll;
+}
+#main-doc .main-section code .tag {
+  position: relative;
+  left: 24px;
+  word-wrap: normal;
+  padding-right: 24px;
+}
+#main-doc .main-section code .var {
+  color: #022873;
+}
+#main-doc .main-section code .var-dec {
+  color: #14AFF7;
+  font-weight: 600;
+}
+#main-doc .main-section code .method {
+  color: deeppink;
+}
+#main-doc .main-section code .string {
+  color: rgb(207, 127, 22);
+}
+#main-doc .main-section code .comment {
+  color: green;
+}
+#main-doc .main-section code .forif {
+  color: darkmagenta;
+  font-weight: 600;
+}
+#main-doc .main-section .main-section-ul {
+  padding-left: 24px;
+}
+#main-doc .main-section .main-section-ul p {
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 700;
+  font-family: Exo, sans-serif;
+  color: #022873;
+  margin: 16px 0px 16px -16px;
+}
+#main-doc .main-section .main-section-ul .pros {
+  color: #14AFF7;
+}
+#main-doc .main-section .main-section-ul .cons {
+  color: #011140;
+  list-style-type: square;
 }/*# sourceMappingURL=style.css.map */
