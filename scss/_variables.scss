@@ -7,7 +7,7 @@ $secondary-color: #011140;
 $tertiary-color: #022873;
 $error-color: #DF3232;
 $contrast-color: #03070A;
-$code-color: #E8E8E8;
+$code-color: #EFEFEF;
 $white-color: #F4F4F4;
 
 //font-colors
@@ -38,6 +38,7 @@ $font10: #e9e9e9;
     line-height: 72px;
     font-weight: 300;
     font-family: Exo, sans-serif;
+    text-transform: uppercase;
 }
 @mixin desk-h4{
     font-size: 42px;
@@ -57,16 +58,19 @@ $font10: #e9e9e9;
 
 //standard fonts on desktop
 @mixin code-text{
+    font-weight: 400;
     font-size: 17px;
     line-height: 24px;
     font-family: consolas, Exo, sans-serif;
 }
 @mixin regular-text{
+    font-weight: 400;
     font-size: 18px;
     line-height: 24px;
     font-family: Exo, sans-serif;
 }
 @mixin smaller-text{
+    font-weight: 300;
     font-size: 16px;
     line-height: 20px;
     font-family: Exo, sans-serif;
@@ -112,13 +116,16 @@ $font10: #e9e9e9;
     font-size: 15px;
     line-height: 18px;
     font-family: consolas, Exo, sans-serif;
+    font-weight: 400
 }
 @mixin mobile-regular-text{
+    font-weight: 400;
     font-size: 16px;
     line-height: 20px;
     font-family: Exo, sans-serif;
 }
 @mixin mobile-smaller-text{
+    font-weight: 300;
     font-size: 14px;
     line-height: 16px;
     font-family: Exo, sans-serif;

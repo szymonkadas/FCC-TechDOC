@@ -160,3 +160,26 @@ searchbar.onkeyup = (e)=>{
                 else{
                     break;}}}}
 }
+//Code responsible for burger functionality on mobile devices
+const media_query = window.matchMedia("(max-width: 720px)")
+const menu = document.getElementById("nav-links");
+const open_menu = (e)=>{
+    if(media_query.matches){
+        if(menu.style.display =="none" || menu.style.display == false){
+            menu.style.display = "grid"
+            menu.parentElement.style.gridTemplateRows = "40px minmax(0,64px) auto";
+            menu.parentElement.style.gap = "8px";
+        }
+        else{
+            menu.style.display = "none"
+            menu.parentElement.style.gridTemplateRows = "40px auto";
+            menu.parentElement.style.gap = "0px";
+        }
+    }
+    else{
+        menu.style.display = "grid";
+        menu.parentElement.style.gridTemplateRows = "72px 40px 96px 1fr"
+        menu.parentElement.style.gap = "24px";
+    }
+}
+media_query.addListener(open_menu);

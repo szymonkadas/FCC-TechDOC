@@ -12,8 +12,11 @@
 <body>
     <nav id="nav-bar">
         <header>
-        <img src="./icons/logo-stack.svg">
-        <div>FCC<span>&nbsp;Documentation</span></div>
+            <div>
+                <img src="./icons/logo-stack.svg">
+                <div>FCC<span>&nbsp;Documentation</span></div>
+            </div>  
+            <img src="./icons/menu.svg" id="burger" onclick="open_menu()">
         </header>
         <div id="nav-links">
             <a class="nav-link"><img src="./icons/house-chimney-user.svg" >Home</a>
@@ -23,9 +26,9 @@
         </div>
         <div class="path-container">
             <span id="path">JS</span>
-            <input type="text" placeholder="search" name="search" id="searchbar" autocomplete="off"></input>
-            <!-- <img src="./icons/search.svg"> -->
-            <div id="search-img" onclick="focus_search()"></div>
+            <div id="searchbar-div">
+                <img id="search-img" onclick="focus_search()" src="./icons/search.svg"></img><input type="text" placeholder="search" name="search" id="searchbar" autocomplete="off"></input>
+            </div>
             <div id="searched">
             </div>
         </div>
@@ -50,7 +53,7 @@
     </nav>
     <main id="main-doc">
         <section class="main-section" id="topic_1">
-            <header>Topic 1</header>
+            <header id="hero-topic">Topic 1</header>
             <p id="topic_1_explanation" title="Explanation">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam dolor reiciendis iusto similique, sequi enim debitis magnam voluptates sunt dignissimos saepe quae rem. Quae totam iste est vel. Cumque molestiae voluptatem, aliquam aperiam nisi ipsam magni quisquam tempore dicta! , vel harum cupiditate minus inventore quae possimus. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore, alias? Ex fugiat perspiciatis at earum minus eveniet asperiores dolor repudiandae, quisquam sit unde, voluptas distinctio corrupti! Eum neque, quam quas rem est nesciunt in similique, iure fugit illum ducimus veniam necessitatibus dolor molestias ut nulla inventore facilis exercitationem sapiente natus.</p>
             <code id="topic_1_example" title="Example">
                 <span class="var-dec">#main-doc</span>{<br>

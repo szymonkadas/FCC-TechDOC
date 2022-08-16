@@ -10,10 +10,25 @@
 //     @return map-get($font-sizes, $fname);
 // };
 @mixin mobile {
-    @media (max-width: 1000px){
+    @media (max-width: 720px){
         @content
     }
 };
+@mixin half-screen{
+    @media (max-width: 1280px){
+        @content
+    }
+};
+@mixin breaking-words {
+    -ms-word-break: break-all;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
 @mixin center { display: flex;
 justify-content: center;
 align-items: center;
@@ -37,7 +52,7 @@ align-items: center;
 .active::before{
     @include before-after;
     width: 4px !important;
-    height: 100% !important;
+    height: 100%;
 }
 body{
     text-rendering: optimizeSpeed;
@@ -46,8 +61,12 @@ body{
     grid-template-columns: 500px 1fr 0px; //26.04%
     gap: 24px;
     // color: $text-color;
+    @include breaking-words;
     @include mobile{
         //Used for media queries B)
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
     }
     font-family: Exo, sans-serif;
     background-color: $white-color;
@@ -61,15 +80,54 @@ body{
     display: grid;
     grid-template-rows: 72px 40px minmax(96px, auto) 1fr;
     row-gap: 24px;
-    padding: 0px 0px 0px 0px;
+    padding: 0px;
     justify-content: center;
+    @include mobile{
+        grid-template-rows: 40px auto;
+        justify-content: initial;
+        row-gap: 8px;
+        height: auto;
+        z-index: 1;
+    }
     header{
         @include desk-h4;
         @include center;
         color: $primary-color;
+        @include mobile{
+            justify-content: space-between;
+            @include mobile-h5;
+            padding: 0px 16px 0px 16px;
+            margin: 0px;
+        }
+        #burger{
+            display: none;
+            @include mobile{
+                display: initial;
+                cursor: pointer;
+                margin-right: -5px;
+            }
+        }
         img{
             height: 64px;
+            @include mobile{
+                position: relative;
+                height: 32px;
+                padding-right: 4px;
+            }
         }
+        div{
+            display: flex;
+            flex-direction: row;
+            line-height: 64px;
+            text-align: center;
+            justify-content: center;
+            width: 472px;
+            @include mobile{
+                line-height: 32px;
+                width: auto;
+            }
+        }
+        span{color: $tertiary-color}
     }
     .nav-link:hover{
         color: $primary-color;
@@ -79,18 +137,35 @@ body{
     #nav-links{
         @include desk-h5;
         display: grid;
-        padding: 0px 16px 0px 0px;
+        padding: 0px 12px 0px 0px;
         grid-template-columns: 164px 154px 164px;
         color: $tertiary-color;
+        @include mobile{
+            grid-template-columns: 1fr;
+            grid-template-rows: 16px 16px 16px;
+            row-gap: 8px;
+            padding: 0px 0px 0px 16px;
+            display: none;
+        }
         .nav-link{
             @include center;
             gap: 8px;
+            @include mobile{
+                justify-content: left;
+                @include mobile-regular-text;
+                gap: 0px;
+                margin-left: -4px;
+            }
             img{
                 @include center;
                 height: 32px;
+                @include mobile{
+                    display: none;
+                }
             }
             #nav-link-small-img{
                 height: 40px;
+
             }
             div{
                 display: flex;
@@ -100,41 +175,86 @@ body{
                 }
             }
         }
+        .active::before{
+            width: 4px;
+            margin-right: -8px !important;
+            @include mobile{
+                margin-right: 4px !important;
+                width: 2px !important; 
+                margin-left: 4px;
+            }
+        }
         .nav-link::before{
             @include before-after;
             margin-right: -5px;
             height: 32px;
+            @include mobile{
+                height: 16px;
+                margin-right: 4px;
+            }
         }
         .nav-link:hover::before{
             width: 4px;
             background-color: $primary-color;
+            @include mobile{
+                width: 2px;
+                margin-left: 4px;
+            }
         }
-        .active::before{
-            width: 4px;
-            height: 32px;
-            margin-right: -8px;
-        }
+        
     }
     .path-container{
         background-color: $secondary-color;
         padding-left: 16px;
         padding-right: 16px;
-        position: relative;
+        @include mobile{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: "path search" "results results";
+            justify-content:space-between;
+            max-width: 100vw;
+        }
         #path{
             @include desk-h6;
             color: $code-color;
             position: relative;
             top: 8px;
+            margin-left: 0px;
+            @include mobile{
+                @include mobile-code-text;
+                grid-area: path;
+                position: initial;
+                display: flex;
+                align-items: center;
+                height: auto;
+
+            }
         }
         @mixin search-bar{
-            width: 404px;
+            width: 412px;
             border-style: solid;
             border-color: $tertiary-color;
             border-width: 4px;
-            padding: 0px 48px 0px 8px;
+            padding: 0px 40px 0px 8px;
             @include code-text;
-            margin-left: -4px;
             font-size: 15px;
+            overflow: scroll;
+            @include mobile{
+                width: 100%;
+                border-radius: 4px;
+                border-width: 2px;
+                padding: 0px 8px 0px 8px;
+                margin-top: auto;
+                margin-bottom: auto; 
+            }
+        }
+        #searchbar-div{
+            position: relative;
+            grid-area: search;
+            @include mobile{
+                display: flex;
+                justify-content: right;
+            }
         }
         #searchbar{
             border-radius: 7px 7px 0px 0px;
@@ -143,22 +263,40 @@ body{
             background-color: $code-color;
             position: relative;
             top: 16px;
+            width: 100%;
             @include search-bar;
+            @include mobile{
+                top: 0px;
+                height: 87%;
+                padding-right: 24px;
+                box-shadow: none !important;
+            }
         }
         #searchbar:focus{
             outline: none;
             box-shadow: -2px -2px 0px $primary-color, 2px -2px 0px $primary-color, 2px 2px 0px $primary-color, -2px 2px 0px $primary-color;
             font-size: 16px;
+            @include mobile{
+                font-size: 15px !important;
+                border-color: $primary-color;
+            }
         }
         #search-img{
             display: inline-block;
             height: 32px;
             width: 32px;
             position: absolute;
-            top: 52px;
-            left: 436px;
-            background-image: url("../../icons/search.svg");
+            top: 20px;
+            right: 8px;
+            z-index: 2;
+            //background-image: url("../../icons/search.svg");
             cursor: pointer;
+            @include mobile{
+                height: 100%;
+                width: 24px;
+                top: 0px;
+                right: 1%;
+            }
         }
         input:focus ~ #search-img{
             opacity: 0.4;
@@ -179,6 +317,19 @@ body{
                 text-decoration: none;
                 @include code-text;
                 color: $font80;
+                @include mobile{
+                    color: $primary-color;
+                    @include mobile-code-text;
+                }
+            }
+            grid-area: results;
+            @include mobile{
+                margin: 0px 0px 0px -16px; //due to path container padding;
+                padding-left: 16px;
+                border-width: 0px;
+                background-color: $secondary-color;
+                border-radius: 0px;
+                box-shadow: none !important;
             }
         }
     }
@@ -187,37 +338,35 @@ body{
         grid-template-columns: 1fr 2fr 2fr;
         column-gap: 12px;
         padding: 0px 16px 0px 16px;
+        
+        @include mobile{display: none;}
         a{
             text-decoration: none;
             color: $tertiary-color;
             display: flex;
             align-items: center;
         }
-        @mixin container{display: flex;
+        @mixin container{
+            display: flex;
             flex-direction: column;
             @include desk-h6;
             row-gap: 16px;}
         .nav-link-container{
             @include container;
-            .nav-link::before{@include before-after;
-            height: 100%;
-            position: relative;
-            left: -3px;}
+            .nav-link::before{
+                @include before-after;
+                height: 100%;
+                position: relative;
+                left: -3px;}
             .nav-link:hover::before{
                 width: 3px;
             }
             .nav-link{
                 height: auto;
-                -ms-word-break: break-all;
-                word-break: break-word;
-                -ms-hyphens: auto;
-                -moz-hyphens: auto;
-                -webkit-hyphens: auto;
-                hyphens: auto;
-                overflow-wrap: break-word;
-                word-wrap: break-word;
+                @include breaking-words;
             }
         }
+       
         
     }
 }
@@ -227,14 +376,29 @@ body{
     display: grid;
     grid-template-rows: auto;
     gap: 24px;
+    @include mobile{
+        gap: 0px;
+    }
     .main-section{
         color: $font100;
         letter-spacing: 1px;
         margin-right: 64px;
         @include regular-text;
+        @include mobile{
+            @include mobile-regular-text;
+            margin-left: 16px;
+            margin-right: 16px;
+        }
         header{
             @include desk-h3; 
+            @include mobile{
+                @include mobile-h3;
+                padding-top: 88px;
+            }
             color: $tertiary-color;
+        }
+        #hero-topic{
+            padding-top: 0px;
         }
         code{
             @include code-text;
@@ -242,11 +406,19 @@ body{
             background-color: $code-color;
             padding:16px 24px 16px 24px;
             overflow: scroll;
+            @include mobile{
+                padding: 8px 8px 8px 8px;
+                @include mobile-code-text;
+            }
             .tag{
                 position: relative;
                 left: 24px;
                 word-wrap:normal;
                 padding-right: 24px;
+                @include mobile{
+                    left: 8px;
+                    padding-right: 8px;
+                }
             }
             .var{color: $tertiary-color}
             .var-dec{color: $primary-color;
@@ -259,10 +431,17 @@ body{
         }
         .main-section-ul{
             padding-left: 24px;
+            @include mobile{
+                padding-left: 16px;
+            }
             p{
                 @include desk-h5;
                 color: $tertiary-color;
                 margin: 16px 0px 16px -16px;
+                @include mobile{
+                    margin: 8px 0px 8px -16px;
+                    @include mobile-h5;
+                }
             }
             .pros{
                 color: $primary-color;
