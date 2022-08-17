@@ -24,35 +24,35 @@ $font10: #e9e9e9;
     font-family: Exo, sans-serif;
 }
 @mixin desk-h1{
-    font-size: 101px;
-    line-height: 132px;
-    @include h-default()
-}
-@mixin desk-h2{
-    font-size: 75.5px;
-    line-height: 104px;
-    @include h-default()
-}
-@mixin desk-h3{
     font-size: 57px;
     line-height: 72px;
     font-weight: 300;
     font-family: Exo, sans-serif;
     text-transform: uppercase;
 }
-@mixin desk-h4{
+@mixin desk-h2{
     font-size: 42px;
     line-height: 56px;
     @include h-default;
 }
-@mixin desk-h5{
+@mixin desk-h3{
     font-size: 32px;
     line-height: 40px;
     @include h-default()
 }
-@mixin desk-h6{
+@mixin desk-h4{
     font-size: 24px;
     line-height: 32px;
+    @include h-default()
+}
+@mixin desk-h5{
+    font-size: 20px;
+    line-height: 24px;
+    @include h-default()
+}
+@mixin desk-h6{
+    font-size: 16px;
+    line-height: 24px;
     @include h-default()
 }
 

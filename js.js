@@ -161,7 +161,7 @@ searchbar.onkeyup = (e)=>{
                     break;}}}}
 }
 //Code responsible for burger functionality on mobile devices
-const media_query = window.matchMedia("(max-width: 720px)")
+const media_query = window.matchMedia("(max-width: 1023px)")
 const menu = document.getElementById("nav-links");
 const open_menu = (e)=>{
     if(media_query.matches){
