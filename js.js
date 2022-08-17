@@ -61,13 +61,13 @@ const fill_nav = (target) =>{
     let to_fill = document.getElementById("article-features");
     remove_children(to_fill);
     //filling "In this article"
-    let to_be_filled = create_an_element("a", false, ["nav-link"], "In this article:", `#${content_to_fill.id}`);
+    let to_be_filled = create_an_element("a", false, ["dir-nav-link"], "In this article:", `#${content_to_fill.id}`);
     to_fill.appendChild(to_be_filled);
     //filling rest
     for(i=0; i<content_to_fill.children.length;i++){
         if(content_to_fill.children[i].title.length > 0){
             let node = content_to_fill.children[i];
-            to_be_filled = create_an_element("a", false, ["nav-link"], `${node.title}`, `#${node.id}`);
+            to_be_filled = create_an_element("a", false, ["dir-nav-link"], `${node.title}`, `#${node.id}`);
             to_fill.appendChild(to_be_filled);}}
     //applying style
     multi_activation("#article-features > a", "art")

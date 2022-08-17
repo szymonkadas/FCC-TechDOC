@@ -60,6 +60,7 @@ body{
     margin: 0px;
     display: grid;
     grid-template-columns: 500px 1fr 0px; //26.04%
+    grid-template-areas: "nav main padding";
     gap: 24px;
     // color: $text-color;
     @include breaking-words;
@@ -75,7 +76,8 @@ body{
     font-family: Exo, sans-serif;
     background-color: $white-color;
 }
-#nav-bar{
+#navbar{
+    grid-area: nav;
     overflow: scroll;
     top: 0px;
     position: sticky;
@@ -153,7 +155,7 @@ body{
         }
         span{color: $tertiary-color}
     }
-    .nav-link:hover{
+    .nav-link:hover, .site-nav-link:hover{
         color: $primary-color;
         transition: 0.3s;
         cursor: pointer;
@@ -176,9 +178,11 @@ body{
             padding: 0px 0px 0px 16px;
             display: none;
         }
-        .nav-link{
+        .site-nav-link{
             @include center;
             gap: 8px;
+            text-decoration: none;
+            color: $tertiary-color;
             @include mobile{
                 justify-content: left;
                 @include mobile-regular-text;
@@ -225,7 +229,7 @@ body{
                 margin-left: 4px;
             }
         }
-        .nav-link::before{
+        .site-nav-link::before{
             @include before-after;
             margin-right: -5px;
             height: 32px;
@@ -237,7 +241,7 @@ body{
                 margin-right: 4px;
             }
         }
-        .nav-link:hover::before{
+        .site-nav-link:hover::before{
             width: 4px;
             background-color: $primary-color;
             @include half-screen(){
@@ -420,15 +424,15 @@ body{
         }
         .nav-link-container{
             @include container;
-            .nav-link::before{
+            .nav-link::before, .dir-nav-link::before{
                 @include before-after;
                 height: 100%;
                 position: relative;
                 left: -3px;}
-            .nav-link:hover::before{
+            .nav-link:hover::before, .dir-nav-link:hover::before{
                 width: 3px;
             }
-            .nav-link{
+            .nav-link, .dir-nav-link{
                 text-decoration: none;
                 color: $tertiary-color;
                 display: flex;
@@ -442,6 +446,7 @@ body{
     }
 }
 #main-doc{
+    grid-area: main;
     overflow: hidden;
     margin-top: 16px;
     display: grid;
